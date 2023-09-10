@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Login.Beállítások"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"             
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Login"
+             mc:Ignorable="d" 
+             FontSize="25"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="230"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="user" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="40" Width="400" TextWrapping="Wrap"  VerticalAlignment="Center"/>
+        <TextBlock x:Name="permission" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Height="40" Width="400" TextWrapping="Wrap"  VerticalAlignment="Center"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Napi váltó" VerticalAlignment="Center"/>
+        <TextBox x:Name="changer" PreviewTextInput="NumberValidationTextBox" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Width="200" Height="40"/>
+        <Button x:Name="dailyChanger" Grid.Row="2" Grid.Column="1" Width="150" Height="40" Content="Módosít" Click="dailyChanger_Click" />
+       
+        <StackPanel x:Name="texts" Grid.Row="4" Visibility="Collapsed" Margin="0 20 0 0" Grid.Column="1" Height="200" >
+
+            <TextBox x:Name="passNow" Margin="4"/>
+
+            <PasswordBox x:Name="newPass" Margin="4"/>
+
+            <PasswordBox x:Name="newPassAgain" Margin="4"/>
+            
+            <TextBox x:Name="Email" Visibility="Collapsed" Margin="4"/>
+        </StackPanel>
+        <ComboBox Name="cbUsers" Grid.Column="1" SelectedIndex="0" Visibility="Visible" Width="200" Grid.Row="3" Margin="0,89,0,97"/>
+        <Button x:Name="userDelete" Grid.Row="3" Visibility="Visible" Content="Felhasználó törlés" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Column="1" Width="150" Margin="0,0,0,10" Click="userDelete_Click" />
+
+        <Button x:Name="passModify" Grid.Row="3" Content="Jelszó módosít" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="0" Width="150" Margin="0,0,0,110" Click="passModify_Click"/>
+        <Button x:Name="newUser" Grid.Row="3" Content="Új felhasználó" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="0" Width="150" Margin="0,0,0,10" Click="newUser_Click"/>
+
+    </Grid>
+</UserControl>

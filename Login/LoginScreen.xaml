@@ -1,0 +1,66 @@
+﻿<Window x:Class="Login.LoginScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Title="LoginScreen" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                <GradientStop Color="#FF4B0082" Offset="1" />
+                <GradientStop Color="#FF483d" Offset="0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Height="410"  Margin="20 20 20 20" Background="#100E17">
+            
+        </Border>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button x:Name="changerBtn" VerticalAlignment="Bottom" Content="munka" Margin="30" Width="100" Style="{StaticResource MaterialDesignRaisedButton}" Foreground="Black" ToolTip="Login" Click="Button_Click" >
+                
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="700">
+                <StackPanel Margin="20 40">
+
+                    <TextBlock x:Name="logintxt" Text="Belépés" Margin="20" Foreground="White" TextAlignment="Center" FontSize="38" FontFamily="Great Vibes"/>
+
+                    <StackPanel x:Name="user" Orientation="Horizontal" Margin="10"  HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="White"/>
+                        <TextBox x:Name="txtUsername" Margin="10 0" materialDesign:HintAssist.Hint="Felhasználónév" Foreground="White" Width="250" BorderBrush="White"/>
+                    </StackPanel>
+
+                    <StackPanel x:Name="wage" Orientation="Horizontal" Margin="10" Visibility="Collapsed" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox">
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="White"/>
+                        <TextBox x:Name="txtWage" Margin="10 0" materialDesign:HintAssist.Hint="Kódod" Foreground="White" Width="250" BorderBrush="White"/>
+                    </StackPanel>
+
+                    <StackPanel x:Name="pass" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="White"/>
+                        <PasswordBox x:Name="txtPassword" Margin="10 0" materialDesign:HintAssist.Hint="Jelszó" Foreground="White" Width="250" BorderBrush="White"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="10" HorizontalAlignment="Center">
+                        
+                        <Button Width="100" Height="40" Style="{StaticResource MaterialDesignRaisedButton}"                       
+                         Background="#FF483d" Foreground="Black" ToolTip="Login" x:Name="btnLogin" Content="Belép" Click="btnLogin_Click"/>
+
+                    </StackPanel>
+                    
+                    
+                    
+                    
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Width="100">
+                <Button Margin="10 20" Style="{StaticResource MaterialDesignFlatAccentButton}" Background="{x:Null}"
+                 ToolTip="Close" x:Name="btnExit" Click="btnExit_Click">
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

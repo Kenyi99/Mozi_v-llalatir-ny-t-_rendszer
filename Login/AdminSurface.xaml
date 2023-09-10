@@ -1,0 +1,111 @@
+﻿<Window x:Class="Login.AdminSurface"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AdminSurface" Height="600" Width="1220"
+        ResizeMode="NoResize"
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Background="#100E17">
+    <Window.Resources>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Width)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Width)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Grid Background="#FFEEEEEE" MouseDown="Grid_MouseDown">
+        <StackPanel VerticalAlignment="Top">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Column="2">
+                    <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="Button_Click">
+                        <materialDesign:PackIcon Kind="Logout"/>
+                    </Button>
+                    <Button x:Name="upperSettings" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="0 0 10 0" VerticalAlignment="Bottom" Click="upperSettings_Click">
+                        <materialDesign:PackIcon Kind="Settings"/>
+                    </Button>
+                    <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="ButtonFechar_Click">
+                        <materialDesign:PackIcon Kind="Power"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Margin="0 40 0 0">
+                <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center"/> 
+            </Grid>
+            <Grid Width="250" x:Name="grid" HorizontalAlignment="Left" Background="#FF222222">
+                <StackPanel VerticalAlignment="Top" Height="50">
+                    <TextBlock Foreground="LightGray" x:Name="Felhasználó" Text="" FontSize="20" Margin="20 10 20 0"></TextBlock>
+                </StackPanel>
+                <!--<StackPanel Orientation="Horizontal">
+                </StackPanel>-->
+                <Button x:Name="MenuCollapser" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="{x:Null}" BorderBrush="{x:Null}" Height="50" Width="60" Click="clores_Click" >
+                    <materialDesign:PackIcon x:Name="záró" Kind="ArrowBack" Height="30" Width="30"/>
+                </Button>
+
+                <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                    <Grid x:Name="GridCursor" Margin="0 50 0 0" Background="#FF4B0082" Width="10" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"/>
+                </materialDesign:TransitioningContent>
+
+                <ListView x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,50,0,50"  Foreground="LightGray" FontFamily="Champagne &amp; Limousines" FontSize="18" SelectionChanged="ListViewMenu_SelectionChanged" SelectedIndex="0">
+                    
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Home" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Kezdőlap" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Worker" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Dolgozók" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Clock" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Munkaórák" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="DateRange" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Naptár" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Phone" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Kapcsolat" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Settings" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Beállítások" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>
